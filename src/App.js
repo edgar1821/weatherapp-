@@ -4,11 +4,13 @@ import './App.css';
 //componentes
 import WeatherLocation from './components/WeatherLocation';
 
+
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        weather app (aplicacion del clima)
+        
         <WeatherLocation></WeatherLocation>
       </div>
 

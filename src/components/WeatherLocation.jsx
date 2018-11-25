@@ -6,7 +6,7 @@ import WheatherData from './WeatherData'
 const WeatherLocation = () => (
     <div>
         WeatherLocation
-        <Location></Location>
+        <Location city={"Lima"}></Location>
         <WheatherData></WheatherData>
     </div>
 )
