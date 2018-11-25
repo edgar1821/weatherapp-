@@ -7,7 +7,7 @@ const WheatherData = () => (
     <div>
         <WeatherTemperature
             temperature={20}
-            weatherState={''}
+            weatherState={'fog'}
         />
         <WheatherExtraInfo humidity={80} wind={"10 m/s"} />
     </div>

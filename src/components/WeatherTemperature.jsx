@@ -1,8 +1,27 @@
 import React from 'react';
-//import Weathericons from 'react-weathericons';
-const WheatherTemperature = ({temperature,weatherState}) =>(
+import WeatherIcons from 'react-weathericons';
+
+
+const icons = {
+    sunny:"day-sunny",
+    fog:"day-fog"
+}
+
+const getWeatherIcon = (weatherState) => {
+    
+    let icon = icons[weatherState];
+
+    if (icon)
+        return <WeatherIcons name={icon} size="2x" />;
+    else
+        return <WeatherIcons name="day-sunny" size="2x" />
+
+}
+const WheatherTemperature = ({ temperature, weatherState }) => (
     <div>
-        {/* <Weathericons name="day-suny" size="2x" /> */}
+        {
+            getWeatherIcon(weatherState)
+        }
         <span>{`${temperature} C°`}</span>
     </div>
 );
