@@ -1,20 +1,20 @@
 import React from 'react';
 import WeatherIcons from 'react-weathericons';
-
-import {CLOUD, CLOUDY, SUN,RAIN,SNOW,WINDY,FOG} from './../constants/Weather';
+import PropTypes from 'prop-types';
+import { CLOUD, CLOUDY, SUN, RAIN, SNOW, WINDY, FOG } from './../constants/Weather';
 
 const icons = {
-    [CLOUD]:"cloud",
-    [CLOUDY]:"cloudy",
-    [SUN]:"day-sunny",
-    [RAIN]:"rain",
-    [SNOW]:"snow",
-    [WINDY]:"sindy",
-    [FOG]:"day-fog"
+    [CLOUD]: "cloud",
+    [CLOUDY]: "cloudy",
+    [SUN]: "day-sunny",
+    [RAIN]: "rain",
+    [SNOW]: "snow",
+    [WINDY]: "sindy",
+    [FOG]: "day-fog"
 }
 
 const getWeatherIcon = (weatherState) => {
-    
+
     let icon = icons[weatherState];
 
     if (icon)
@@ -31,5 +31,10 @@ const WheatherTemperature = ({ temperature, weatherState }) => (
         <span>{`${temperature} C°`}</span>
     </div>
 );
+
+WheatherTemperature.propTypes = {
+    temperature: PropTypes.number.isRequired,
+    weatherState: PropTypes.string.isRequired,
+};
 
 export default WheatherTemperature;
