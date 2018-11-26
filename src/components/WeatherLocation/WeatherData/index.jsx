@@ -3,9 +3,11 @@ import React from 'react';
 import WheatherExtraInfo from './WeatherExtraInfo';
 import WeatherTemperature from './WeatherTemperature';
 
-import { CLOUDY} from './../constants/Weather';
+import { CLOUDY} from './../../../constants/Weather';
+//css
+import './styles.css';
 const WheatherData = () => (
-    <div>
+    <div className="weatherDataCont">
         <WeatherTemperature
             temperature={20}
             weatherState={CLOUDY}
