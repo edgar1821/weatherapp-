@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Location from './Location';
 import WheatherData from './WeatherData/index';
 
@@ -11,15 +11,19 @@ const data = {
     humidity: 10,
     wind: "10 m/s"
 }
-const WeatherLocation = () => (
-    <div>
-        <div className="weatherLocationCont">
-            <Location city={"Lima"}></Location>
-            <WheatherData data={data}></WheatherData>
-        </div>
+class WeatherLocation extends Component {
 
-    </div>
-)
+    render() {
+        return (
+            <div>
+                <div className="weatherLocationCont">
+                    <Location city={"Lima"}></Location>
+                    <WheatherData data={data}></WheatherData>
+                </div>
 
+            </div>
+        );
+    }
+} 
 
 export default WeatherLocation;
