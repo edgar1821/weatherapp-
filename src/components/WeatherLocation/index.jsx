@@ -1,18 +1,56 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Location from './Location';
 import WheatherData from './WeatherData/index';
 
+import { SUN,WINDY } from './../../constants/Weather';
 import './style.css';
 
-const WeatherLocation = () => (
-    <div>
-        <div className="weatherLocationCont">
-            <Location city={"Lima"}></Location>
-            <WheatherData></WheatherData>
-        </div>
+const data = {
+    temperature: 5,
+    weatherState: SUN,
+    humidity: 10,
+    wind: "10 m/s"
+}
 
-    </div>
-)
+const data2 = {
+    temperature: 15,
+    weatherState: WINDY,
+    humidity: 100,
+    wind: "140 m/s"
+}
 
+class WeatherLocation extends Component {
+
+    constructor(){
+        super();
+        //solo se puede usar el state en el constructor
+        this.state={
+            city:"Buenos Aires",
+            data: data,
+        }
+    }
+    handleUpdateClick = ()=>{
+        //console.log("actualizado");
+        //alert("actualizado");
+        //para cambiar los valores del state es con setState
+        this.setState({
+            city:"Lima",
+            data:data2,
+        })
+    }
+    render() {
+        //const {city,data} = this.state;   opcional
+        return (
+            <div>
+                <div className="weatherLocationCont">
+                    <Location city={this.state.city}></Location>
+                    <WheatherData data={this.state.data}></WheatherData>
+                    <button onClick={this.handleUpdateClick}>Actualizar</button>
+                </div>
+
+            </div>
+        );
+    }
+} 
 
 export default WeatherLocation;
