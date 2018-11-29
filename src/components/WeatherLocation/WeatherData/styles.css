@@ -1,24 +1,27 @@
 .weatherDataCont{
-    background-color: rgba(200, 200, 200, 0.5);
+    background-color: rgba(200,200, 200, 0.5);
     width: 400px;
     height: 100px;
     line-height: 100px;
     border-radius: 5px;
-    margin: 15px;
+    /* margin: 15px; */
 }
 
 .weatherExtraInfoCont{
-    background-color: red;
-    display: inline-block;
     width: 40%;
+    /* background-color: red; */
+    display: inline-block;
+    line-height: 28px;
+    text-align: left;
     
 }
 
 .weatherTemperatureCont{
-    background-color: yellow;
+    /* background-color: yellow; */
     width: 60%;
     display: inline-block;
 }
+
 .temperature{
     font-size: 30px;
     font-weight: bold;
@@ -37,6 +40,6 @@
     font-size: 16px;
     font-weight: bold;
 }
-.wincon{
+.wicon{
     color: rgb(255, 72, 0); 
 }
