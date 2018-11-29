@@ -23,6 +23,7 @@ class WeatherLocation extends Component {
 
     constructor(){
         super();
+        //solo se puede usar el state en el constructor
         this.state={
             city:"Buenos Aires",
             data: data,
@@ -31,6 +32,7 @@ class WeatherLocation extends Component {
     handleUpdateClick = ()=>{
         //console.log("actualizado");
         //alert("actualizado");
+        //para cambiar los valores del state es con setState
         this.setState({
             city:"Lima",
             data:data2,
