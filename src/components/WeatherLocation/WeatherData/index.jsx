@@ -20,7 +20,7 @@ const WheatherData = ({ data: { temperature, weatherState, humidity, wind } }) =
     )
 }
 
-WheatherData.PropTypes = {
+WheatherData.propTypes = {
     data:PropTypes.shape({
         temperature: PropTypes.number.isRequired,
         weatherState: PropTypes.string.isRequired,
