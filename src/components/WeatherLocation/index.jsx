@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Location from './Location';
 import WheatherData from './WeatherData/index';
 import { SUN} from './../../constants/Weather';
@@ -15,7 +15,6 @@ const data = {
     wind: "10 m/s"
 }
 
-
 class WeatherLocation extends Component {
 
     constructor() {
@@ -25,10 +24,20 @@ class WeatherLocation extends Component {
             city: "Buenos Aires",
             data: data,
         }
+        console.log("constructor");
     }
 
-
-
+    componentDidMount() {
+        // se usa para hacer peticiones al servidor, se ejecuta despues del render y vuelve a ejecutar el render
+        console.log("componentDidMount");
+        this.handleUpdateClick();
+    }
+    componentDidUpdate(prevProps, prevState) {
+        //se ejecuta despues del render
+        console.log("componentDidUpdate");
+        
+    }
+    
     handleUpdateClick = () => {
 
         fetch(api_weather)
@@ -37,13 +46,12 @@ class WeatherLocation extends Component {
             })
             .then((data) => {
                 var newWeather = transformWeather(data);
+                debugger;
                 this.setState({
                     data: newWeather
                 })
             })
             .catch((ex) => {
-
-                debugger;
                 console.log(ex);
                 return ex.json();
             });
@@ -52,12 +60,20 @@ class WeatherLocation extends Component {
     }
     render() {
         //const {city,data} = this.state;   opcional
+        console.log("render")
+        const {city, data} = this.state;
         return (
             <div>
                 <div className="weatherLocationCont">
-                    <Location city={this.state.city}></Location>
-                    <WheatherData data={this.state.data}></WheatherData>
-                    <button onClick={this.handleUpdateClick}>Actualizar</button>
+                    <Location city={city}></Location>
+                    {
+                        data?
+                        <WheatherData data={data}></WheatherData>:
+                        
+                        <CircularProgress />
+                    }
+                    
+                    
                 </div>
 
             </div>
