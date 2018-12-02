@@ -30,7 +30,7 @@ class WeatherLocation extends Component {
             data: data,
         }
         debugger
-        console.log("constructor");
+        
     }
 
     componentDidMount() {
