@@ -4,7 +4,7 @@ import WeatherLocation from './WeatherLocation';
 
 
 var strComponents = (cities) => (
-    cities.map((city) => <WeatherLocation city={city} />)
+    cities.map((city,index) => <WeatherLocation key={index} city={city} />)
 )
     
 
