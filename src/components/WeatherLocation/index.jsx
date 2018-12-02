@@ -29,6 +29,7 @@ class WeatherLocation extends Component {
             city,
             data: data,
         }
+        debugger
         console.log("constructor");
     }
 
@@ -44,8 +45,9 @@ class WeatherLocation extends Component {
     }
     
     handleUpdateClick = () => {
-        const api_weather = getUrlWeatherByCity(this.state.city);
-        fetch(api_weather)
+        //const api_weather = getUrlWeatherByCity(this.state.city);
+        const url = getUrlWeatherByCity(this.state.city);
+        fetch(url)
             .then((resolve) => {
                 return resolve.json();
             })
@@ -57,6 +59,7 @@ class WeatherLocation extends Component {
                 })
             })
             .catch((ex) => {
+                debugger
                 console.log(ex);
                 return ex.json();
             });
