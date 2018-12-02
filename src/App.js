@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div className="App">
         
-        <WeatherLocation></WeatherLocation>
+        <WeatherLocation city="Buenos Aires,ar"></WeatherLocation>
       </div>
 
     );
