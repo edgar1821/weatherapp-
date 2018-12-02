@@ -23,13 +23,13 @@ class WeatherLocation extends Component {
     constructor(props) {
         super(props);
         const {city} = props;
-
+        debugger
         //solo se puede usar el state en el constructor
         this.state = {
             city,
             data: data,
         }
-        debugger
+        
         
     }
 
@@ -53,13 +53,13 @@ class WeatherLocation extends Component {
             })
             .then((data) => {
                 var newWeather = transformWeather(data);
-                debugger;
+                
                 this.setState({
                     data: newWeather
                 })
             })
             .catch((ex) => {
-                debugger
+                
                 console.log(ex);
                 return ex.json();
             });

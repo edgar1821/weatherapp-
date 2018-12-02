@@ -5,7 +5,12 @@ import './App.css';
 //import WeatherLocation from './components/WeatherLocation';
 import LocationList from './components/LocationList';
 
-
+const cities =[
+  "Buenos Aires,ar",
+  "Bogota,col",
+  "Barcelona,es",
+  "Lima,pe"
+]
 
 class App extends Component {
   render() {
@@ -13,7 +18,7 @@ class App extends Component {
       <div className="App">
         
         {/* <WeatherLocation city="Buenos Aires,ar"></WeatherLocation> */}
-        <LocationList></LocationList>
+        <LocationList cities ={cities}></LocationList>
       </div>
 
     );
