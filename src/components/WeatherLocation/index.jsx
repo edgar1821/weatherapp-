@@ -23,7 +23,7 @@ class WeatherLocation extends Component {
     constructor(props) {
         super(props);
         const {city} = props;
-        debugger
+        
         //solo se puede usar el state en el constructor
         this.state = {
             city,
@@ -35,12 +35,12 @@ class WeatherLocation extends Component {
 
     componentDidMount() {
         // se usa para hacer peticiones al servidor, se ejecuta despues del render y vuelve a ejecutar el render
-        console.log("componentDidMount");
+        //console.log("componentDidMount");
         this.handleUpdateClick();
     }
     componentDidUpdate(prevProps, prevState) {
         //se ejecuta despues del render
-        console.log("componentDidUpdate");
+        //console.log("componentDidUpdate");
         
     }
     
@@ -68,11 +68,11 @@ class WeatherLocation extends Component {
     }
     render() {
         //const {city,data} = this.state;   opcional
-        console.log("render")
+        const {onWeatherLocationClick} = this.props;
         const {city, data} = this.state;
         return (
             <div>
-                <div className="weatherLocationCont">
+                <div className="weatherLocationCont"  onClick ={onWeatherLocationClick}>
                     <Location city={city}></Location>
                     {
                         data?
@@ -91,5 +91,6 @@ class WeatherLocation extends Component {
 
 WeatherLocation.propTypes={
     city: PropTypes.string.isRequired,
+    onWeatherLocationClick: PropTypes.func,
 }
 export default WeatherLocation;
