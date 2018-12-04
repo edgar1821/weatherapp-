@@ -5,6 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 // import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+
+import ForecastExtended from './components/ForecastExtended';
 import './App.css';
 
 //componentes
@@ -38,7 +40,7 @@ class App extends Component {
             </Col>
             <Col xs={12} md={6}>
               <div className="details">
-
+                <ForecastExtended />
               </div>
             </Col>
           </Row>
