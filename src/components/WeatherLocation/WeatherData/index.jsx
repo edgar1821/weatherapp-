@@ -6,11 +6,11 @@ import WeatherTemperature from './WeatherTemperature';
 
 
 //css
-import './styles.css';
+//import './styles.css';
 const WheatherData = ({ data: { temperature, weatherState, humidity, wind } }) => {
 
     return (
-        <div className="weatherDataCont">
+        <div className="weatherDataCont" >
             <WeatherTemperature
                 temperature={temperature}
                 weatherState={weatherState}

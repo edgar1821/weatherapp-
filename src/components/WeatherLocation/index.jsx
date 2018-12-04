@@ -10,7 +10,7 @@ import { SUN} from './../../constants/Weather';
 import transformWeather from './../../services/transformWeather'
 //import {api_weather} from './../../constants/api_url';
 
-import './style.css';
+//import './style.css';
 const data = {
     temperature: 5,
     weatherState: SUN,
