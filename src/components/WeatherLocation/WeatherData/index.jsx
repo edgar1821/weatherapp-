@@ -6,7 +6,7 @@ import WeatherTemperature from './WeatherTemperature';
 
 
 //css
-import './styles.css';
+//import './styles.css';
 const WheatherData = ({ data: { temperature, weatherState, humidity, wind } }) => {
 
     return (

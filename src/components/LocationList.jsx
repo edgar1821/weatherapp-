@@ -23,7 +23,7 @@ const LocationList = ({ cities }) => {
     );
 
     return (
-        <div>
+        <div className="locationlist">
             {
                 strComponents(cities)
             }
