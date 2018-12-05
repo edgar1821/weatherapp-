@@ -21,6 +21,11 @@ const cities = [
 ]
 
 class App extends Component {
+  printForeCast = city =>{
+    debugger
+    console.log(city);
+    
+}
   render() {
     return (
       <div className="App">
@@ -36,7 +41,10 @@ class App extends Component {
           </Row>
           <Row>
             <Col xs={12} md={6}>
-              <LocationList cities={cities}></LocationList>
+              <LocationList 
+                cities={cities}
+                onWeatherLocationClick={this.printForeCast}
+                ></LocationList>
             </Col>
             <Col xs={12} md={6}>
               <div className="details">
