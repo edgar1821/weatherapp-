@@ -14,13 +14,20 @@ class LocationList extends Component {
         }
     }
 
+    onClickLocation = (city) => {
+
+        //callback hacia arriba
+        const { onWeatherLocationClick } = this.props;
+        onWeatherLocationClick(city);
+    }
+
     strComponents = (cities) => {
         //const {onWeatherLocationClick} = this.props;
         var items = cities.map((city) => {
             return (<WeatherLocation
                 key={city}
                 city={city}
-            //onWeatherLocationClick={}
+                onWeatherLocationClick={() => this.onClickLocation(city)}
             />)
         })
         return items;
@@ -37,44 +44,6 @@ class LocationList extends Component {
         );
     }
 }
-
-// const LocationList = ({ cities, printForeCast }) => {
-
-
-
-//     // const strComponents = (cities) => (
-//     //     cities.map((city) =>
-//     //         (<WeatherLocation
-//     //             key={city}
-//     //             city={city}
-//     //             // onWeatherLocationClick={()=>handleWeatherLocationClick(city) }
-//     //         />))
-//     // );
-//     // const handleWeatherLocationClick = city => {
-
-//     // }
-
-//     const strComponents = (cities) => {
-//         //const {onWeatherLocationClick} = this.props;
-//         var items = cities.map((city) => {
-//             return (<WeatherLocation
-//                 key={city}
-//                 city={city}
-//                 onWeatherLocationClick={printForeCast}
-//             />)
-//         })
-//         return items;
-//     }
-
-//     return (
-//         <div className="locationlist">
-//             {
-//                 strComponents(cities)
-//             }
-//         </div>
-//     );
-
-// }
 
 LocationList.propTypes = {
     cities: PropTypes.array.isRequired,
