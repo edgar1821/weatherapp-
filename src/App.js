@@ -12,7 +12,7 @@ import './App.css';
 //componentes
 //import WeatherLocation from './components/WeatherLocation';
 import LocationList from './components/LocationList';
-import { MuiThemeProvider } from '@material-ui/core/';
+import { MuiThemeProvider } from '@material-ui/core';
 
 const cities = [
   "Buenos Aires,ar",
@@ -53,7 +53,7 @@ class App extends Component {
               <Col xs={12} md={6}>
                 <div className="details">
                 {
-                  city==null?<h1>No se selecciono ciudad</h1>:<ForecastExtended city={city}/>
+                  city&& <ForecastExtended city={city}/>
                 }
                   
                 </div>
