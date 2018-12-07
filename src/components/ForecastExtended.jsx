@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class ForecastExtended extends Component {
-    
+
     render() {
-        let {city} = this.props;
+        let { city } = this.props;
         return (
             <div>
-                Pronostico extendido {city}
+                <h2 className="forecast-title">
+                    Pronostico extendido {city}
+                </h2>
             </div>
         );
     }
