@@ -12,7 +12,7 @@ import './App.css';
 //componentes
 //import WeatherLocation from './components/WeatherLocation';
 import LocationList from './components/LocationList';
-import { MuiThemeProvider } from '@material-ui/core';
+import { MuiThemeProvider } from '@material-ui/core/';
 
 const cities = [
   "Buenos Aires,ar",
@@ -25,7 +25,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      city: "Nueva Ciudad"
+      city: null
     }
   }
   printForeCast = city =>{
@@ -35,6 +35,7 @@ class App extends Component {
     
   }
   render() {
+    const {city} = this.state;
     return (
       <div className="App">
       <MuiThemeProvider>
@@ -51,7 +52,10 @@ class App extends Component {
               </Col>
               <Col xs={12} md={6}>
                 <div className="details">
-                  <ForecastExtended city={this.state.city}/>
+                {
+                  city==null?<h1>No se selecciono ciudad</h1>:<ForecastExtended city={city}/>
+                }
+                  
                 </div>
               </Col>
             </Row>
