@@ -25,7 +25,19 @@ class ForecastExtended extends Component {
     }
 
     componentDidMount() {
-        let url_forecast = `${url}?q=${this.props.city}&appid=${api_key}`;
+        this.updateCity(this.props.city);
+    }
+    componentWillReceiveProps(nextProps){
+        // se ejecuta cada vez que hay una actualizacion de las propiedades
+        //se ejecuta siempre excepto la primera vez (cuando carga la pagina)
+        if(nextProps.city !== this.props.city){
+            this.setState({forecastData:null});
+            this.updateCity(nextProps.city);
+        }
+    }
+    
+    updateCity = city =>{
+        let url_forecast = `${url}?q=${city}&appid=${api_key}`;
         
         fetch(url_forecast)
         .then(data =>data.json())
@@ -33,6 +45,7 @@ class ForecastExtended extends Component {
             
             
             console.log(weather_data);
+            debugger
             const forecastData = transformForecast(weather_data);
             console.log(forecastData);
             debugger
@@ -44,12 +57,13 @@ class ForecastExtended extends Component {
             console.log(error);
         })
     }
-    
+
     renderForecastItemDays(forecastData) {
+        debugger
         var forecastDays = forecastData.map((forecast) => {
             return (<ForecastItem 
                 key={`${forecast.weekday}${forecast.hour}`}
-                weekday={forecast.dia} 
+                weekday={forecast.weekday} 
                 hour={forecast.hour} 
                 data={forecast.data}></ForecastItem>);
         })

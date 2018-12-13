@@ -12,10 +12,15 @@
 }
 
 .weatherLocationCont{
-  width: 400px;
-  padding: 15px;
-  font-family: 'Roboto',sans-serif;
-  box-shadow: 10px 10px 40px -12px rgba(0, 0, 0, 0.75);
+  margin-left: 10px;
+  margin-right: 10px;
+  width: calc(100%-20px);
+  min-width: 430px;
+  padding: 25px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 10px 10px 40px -12px rgba(0, 0, 0, 0.75); /*efecto de sombras para los divs*/
+  cursor: pointer;
 }
 
 .details{
@@ -73,13 +78,27 @@
   color: rgb(255, 72, 0); 
 }
 
+.locationlist{
+  /* background: green; */
+  /*vh =view height= 30 % de la pantalla*/
+  max-height: 85vh;
+  overflow: auto;
+  /* overflow: auto; para que aparezca el scroll */
+  /* margin-bottom: 20px; */
+}
 @media(max-width:64em){
   .locationlist{
-    background: green;
+    /* background: green; */
     /*vh =view height= 30 % de la pantalla*/
-    max-height: 30vh;
-    overflow: auto; /*para que aparezca el scroll*/
+    max-height: 45vh;
+    /* overflow: auto; para que aparezca el scroll */
     margin-bottom: 20px;
+  }
+
+  .details{
+
+    height: 50vh;
+
   }
 }
 .forecast-title{
