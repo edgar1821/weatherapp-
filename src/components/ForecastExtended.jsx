@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import ForecastItem from './ForecastItem/ForecastItem';
 import transformForecast from './../services/TransformForecast';
 
-const days = [
-    "Lunes", "Martes", "Miercoles", "Jueves", "Viernes"
-]
-var data = {
-    temperature: 10,
-    humidity: 10,
-    weatherState: "normal",
-    wind: "normal"
-}
+// const days = [
+//     "Lunes", "Martes", "Miercoles", "Jueves", "Viernes"
+// ]
+// var data = {
+//     temperature: 10,
+//     humidity: 10,
+//     weatherState: "normal",
+//     wind: "normal"
+// }
 
 const api_key ="32d9de6a1a3b0a27ec0f27544d9dd615";
 const url = "https://api.openweathermap.org/data/2.5/forecast";
