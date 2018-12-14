@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 //import Toolbar from '@material-ui/core/Toolbar';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
-import { createStore } from 'redux';
+
 // import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 import ForecastExtended from './components/ForecastExtended';
@@ -16,6 +16,8 @@ import './App.css';
 import LocationList from './components/LocationList';
 import { MuiThemeProvider } from '@material-ui/core';
 
+import {store} from './store/index';
+import {setCity} from './actions/index';
 const cities = [
   "Buenos Aires,ar",
   "Bogota,col",
@@ -23,8 +25,8 @@ const cities = [
   "Lima,pe"
 ]
 
-const store = createStore(() => {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );//se agrega esta inea para que funcione el plugin de redux en chrome
-const setCity = value =>({type:'setCity', value}); //metodo para crear acciones
+
+
 class App extends Component {
   constructor() {
     super();
