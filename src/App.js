@@ -4,6 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 //import Typography from '@material-ui/core/Typography';
 //import Toolbar from '@material-ui/core/Toolbar';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+
+import { createStore } from 'redux';
 // import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 import ForecastExtended from './components/ForecastExtended';
@@ -21,47 +23,51 @@ const cities = [
   "Lima,pe"
 ]
 
+const store = createStore(() => {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );//se agrega esta inea para que funcione el plugin de redux en chrome
+
 class App extends Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
       city: null
     }
   }
-  printForeCast = city =>{
+  printForeCast = city => {
     this.setState({
       city
     });
-    
+    const action = {type:'setCity',value: city};
+    store.dispatch(action);
+
   }
   render() {
-    const {city} = this.state;
+    const { city } = this.state;
     return (
       <div className="App">
-      <MuiThemeProvider>
-        <Grid>
+        <MuiThemeProvider>
+          <Grid>
             <Row>
               <AppBar title="Weather App" />
             </Row>
             <Row>
               <Col xs={12} md={6}>
-                <LocationList 
+                <LocationList
                   cities={cities}
                   onWeatherLocationClick={this.printForeCast}
-                  ></LocationList>
+                ></LocationList>
               </Col>
               <Col xs={12} md={6}>
                 <div className="details">
-                {
-                  city&& <ForecastExtended city={city}/>
-                }
-                  
+                  {
+                    city && <ForecastExtended city={city} />
+                  }
+
                 </div>
               </Col>
             </Row>
           </Grid>
-      </MuiThemeProvider>
-        
+        </MuiThemeProvider>
+
 
       </div>
 

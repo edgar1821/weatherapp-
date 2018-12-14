@@ -45,21 +45,21 @@ class ForecastExtended extends Component {
             
             
             console.log(weather_data);
-            debugger
+            
             const forecastData = transformForecast(weather_data);
             console.log(forecastData);
-            debugger
+            
             this.setState({forecastData: forecastData})
 
         })
         .catch((error)=>{
-            debugger
+            
             console.log(error);
         })
     }
 
     renderForecastItemDays(forecastData) {
-        debugger
+        
         var forecastDays = forecastData.map((forecast) => {
             return (<ForecastItem 
                 key={`${forecast.weekday}${forecast.hour}`}
