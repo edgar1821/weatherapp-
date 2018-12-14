@@ -24,7 +24,7 @@ const cities = [
 ]
 
 const store = createStore(() => {}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() );//se agrega esta inea para que funcione el plugin de redux en chrome
-
+const setCity = value =>({type:'setCity', value}); //metodo para crear acciones
 class App extends Component {
   constructor() {
     super();
@@ -36,8 +36,8 @@ class App extends Component {
     this.setState({
       city
     });
-    const action = {type:'setCity',value: city};
-    store.dispatch(action);
+    
+    store.dispatch(setCity(city));
 
   }
   render() {
