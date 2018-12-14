@@ -4,7 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 //import Typography from '@material-ui/core/Typography';
 //import Toolbar from '@material-ui/core/Toolbar';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 // import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
@@ -16,16 +17,14 @@ import './App.css';
 import LocationList from './components/LocationList';
 import { MuiThemeProvider } from '@material-ui/core';
 
-import {store} from './store/index';
-import {setCity} from './actions/index';
+
+import { setCity } from './actions/index';
 const cities = [
   "Buenos Aires,ar",
   "Bogota,col",
   "Barcelona,es",
   "Lima,pe"
 ]
-
-
 
 class App extends Component {
   constructor() {
@@ -38,8 +37,8 @@ class App extends Component {
     this.setState({
       city
     });
-    
-    store.dispatch(setCity(city));
+
+    this.props.setCity(city);
 
   }
   render() {
@@ -69,12 +68,19 @@ class App extends Component {
             </Row>
           </Grid>
         </MuiThemeProvider>
-
-
       </div>
 
     );
   }
 }
 
-export default App;
+App.prototype = {
+  setCity: PropTypes.func.isRequired,
+}
+const mapDispatchToProps = dispatch => (
+  {
+    setCity: value => dispatch(setCity(value))
+  }
+)
+export default  connect(null, mapDispatchToProps)(App);
+
