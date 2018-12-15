@@ -4,8 +4,6 @@ import AppBar from '@material-ui/core/AppBar';
 //import Typography from '@material-ui/core/Typography';
 //import Toolbar from '@material-ui/core/Toolbar';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
 // import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
@@ -14,11 +12,11 @@ import './App.css';
 
 //componentes
 //import WeatherLocation from './components/WeatherLocation';
-import LocationList from './components/LocationList';
+import LocationListContainer from './containers/LocationListContainer';
 import { MuiThemeProvider } from '@material-ui/core';
 
 
-import { setCity } from './actions/index';
+
 const cities = [
   "Buenos Aires,ar",
   "Bogota,col",
@@ -33,14 +31,7 @@ class App extends Component {
       city: null
     }
   }
-  printForeCast = city => {
-    this.setState({
-      city
-    });
 
-    this.props.setCity(city);
-
-  }
   render() {
     const { city } = this.state;
     return (
@@ -52,10 +43,7 @@ class App extends Component {
             </Row>
             <Row>
               <Col xs={12} md={6}>
-                <LocationList
-                  cities={cities}
-                  onWeatherLocationClick={this.printForeCast}
-                ></LocationList>
+                <LocationListContainer cities={cities}></LocationListContainer>
               </Col>
               <Col xs={12} md={6}>
                 <div className="details">
@@ -74,13 +62,5 @@ class App extends Component {
   }
 }
 
-App.prototype = {
-  setCity: PropTypes.func.isRequired,
-}
-const mapDispatchToProps = dispatch => (
-  {
-    setCity: value => dispatch(setCity(value))
-  }
-)
-export default  connect(null, mapDispatchToProps)(App);
+export default App;
 
