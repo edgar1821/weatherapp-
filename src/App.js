@@ -7,7 +7,7 @@ import { Grid, Row, Col } from 'react-flexbox-grid';
 
 // import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
-import ForecastExtended from './components/ForecastExtended';
+import ForecastExtendedContainer from './containers/ForecastExtendedContainer';
 import './App.css';
 
 //componentes
@@ -25,15 +25,10 @@ const cities = [
 ]
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      city: null
-    }
-  }
+
 
   render() {
-    const { city } = this.state;
+    
     return (
       <div className="App">
         <MuiThemeProvider>
@@ -47,9 +42,7 @@ class App extends Component {
               </Col>
               <Col xs={12} md={6}>
                 <div className="details">
-                  {
-                    city && <ForecastExtended city={city} />
-                  }
+                  <ForecastExtendedContainer />
 
                 </div>
               </Col>
