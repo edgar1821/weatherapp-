@@ -10,9 +10,7 @@ class ForecastExtendedContainer extends Component {
                 {
                     this.props.city && <ForecastExtended city={this.props.city}></ForecastExtended>
                 }
-                
-                    
-                
+
             </div>
         );
     }
