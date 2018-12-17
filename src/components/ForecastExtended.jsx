@@ -42,10 +42,7 @@ class ForecastExtended extends Component {
         fetch(url_forecast)
         .then(data =>data.json())
         .then((weather_data) =>{
-            
-            
-            console.log(weather_data);
-            
+
             const forecastData = transformForecast(weather_data);
             console.log(forecastData);
             
