@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import Paper from '@material-ui/core/Paper';
 import AppBar from '@material-ui/core/AppBar';
+import Paper from '@material-ui/core/Paper';
 //import Typography from '@material-ui/core/Typography';
 //import Toolbar from '@material-ui/core/Toolbar';
 import { Grid, Row, Col } from 'react-flexbox-grid';
@@ -31,24 +32,27 @@ class App extends Component {
     
     return (
       <div className="App">
-        <MuiThemeProvider>
-          <Grid>
-            <Row>
+        <MuiThemeProvider theme={''}>
+        <Grid>
+          <Row>
+            <Col xs={12}>
               <AppBar title="Weather App" />
-            </Row>
-            <Row>
-              <Col xs={12} md={6}>
-                <LocationListContainer cities={cities}></LocationListContainer>
-              </Col>
-              <Col xs={12} md={6}>
-                <div className="details">
-                  <ForecastExtendedContainer />
-
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} md={6}>
+              <LocationListContainer cities={cities} ></LocationListContainer>
+            </Col>
+            <Col xs={12} md={6}>
+              <Paper zDepth={4}>
+                <div className='detail'>
+                    <ForecastExtendedContainer></ForecastExtendedContainer>                       
                 </div>
-              </Col>
-            </Row>
-          </Grid>
-        </MuiThemeProvider>
+              </Paper>
+            </Col>
+          </Row>
+        </Grid>
+      </MuiThemeProvider>
       </div>
 
     );

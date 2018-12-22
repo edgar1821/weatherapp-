@@ -19,7 +19,7 @@ export const setSelectedCity = payload => {
                 return resolve.json();
             })
             .then((data) => {
-                debugger
+                
                 var forecastData = transformWeather(data);
                 dispatch(setForecastData({ city: payload, forecastData }))
 
