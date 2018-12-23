@@ -34,7 +34,7 @@ class App extends Component {
         <MuiThemeProvider>
           <Grid>
             <Row>
-              <AppBar title="Weather App" />
+              <AppBar title="Weather App" ></AppBar>
             </Row>
             <Row>
               <Col xs={12} md={6}>

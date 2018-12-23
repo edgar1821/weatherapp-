@@ -25,6 +25,7 @@ class ForecastExtended extends Component {
     }
 
     componentDidMount() {
+        //se ejecuta cuando el componente haya sido montado en el dom, sirve mejor para inicializar
         this.updateCity(this.props.city);
     }
     componentWillReceiveProps(nextProps){
@@ -37,6 +38,7 @@ class ForecastExtended extends Component {
     }
     
     updateCity = city =>{
+        debugger
         let url_forecast = `${url}?q=${city}&appid=${api_key}`;
         
         fetch(url_forecast)
@@ -44,18 +46,15 @@ class ForecastExtended extends Component {
         .then((weather_data) =>{
             
             
-            console.log(weather_data);
+            //console.log(weather_data);
             
             const forecastData = transformForecast(weather_data);
-            console.log(forecastData);
+            //console.log(forecastData);
             
             this.setState({forecastData: forecastData})
 
         })
-        .catch((error)=>{
-            
-            console.log(error);
-        })
+        
     }
 
     renderForecastItemDays(forecastData) {

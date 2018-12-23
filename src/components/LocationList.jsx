@@ -15,7 +15,6 @@ class LocationList extends Component {
     }
 
     onClickLocation = (city) => {
-
         //callback hacia arriba
         const { onWeatherLocationClick } = this.props;
         onWeatherLocationClick(city);
@@ -47,7 +46,7 @@ class LocationList extends Component {
 
 LocationList.propTypes = {
     cities: PropTypes.array.isRequired,
-    printForeCast: PropTypes.func.isRequired,
+    onWeatherLocationClick: PropTypes.func.isRequired,
 }
 
 export default LocationList;
